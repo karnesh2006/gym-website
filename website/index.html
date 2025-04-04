@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>FitZone Fitness Center</title>
+  <style>
+    * {box-sizing: border-box}
+
+    /* Set height of body and the document to 100% */
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Logo styling */
+    .logo {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 250px; /* Adjust width as needed */
+    }
+
+    .tablink:hover {
+      background-color: #777;
+    }
+
+    /* Style the tab content (and add height:100% for full page content) */
+    .tabcontent {
+      color: white;
+      display: none;
+      padding: 100px 20px;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Content Container */
+    .content-container {
+      max-width: 1200px;
+      margin: auto;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    /* Style tab links */
+    .tablink {
+      background-color: transparent;
+      color: white;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-size: 17px;
+      width: 16.66%;
+    }
+
+    /*lrating*/
+    .rating {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      font-size: 2em;
+      cursor: pointer;
+    }
+    .rating input {
+      display: none;
+    }
+    .rating label {
+      color: #ddd;
+    }
+    .rating input:checked ~ label,
+    .rating input:hover ~ label,
+    .rating label:hover,
+    .rating label:hover ~ label {
+      color: gold;
+    }
+    
+    
+
+    .tablink:hover {
+      background-color: #777;
+    }
+
+    /* Style the tab content (and add height:100% for full page content) */
+    .tabcontent {
+      color: white;
+      display: none;
+      padding: 100px 20px;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Specific section backgrounds */
+    .tabcontent video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    
+
+    .content-container {
+      max-width: 1200px;
+      margin: auto;
+      background: rgba(0, 0, 0, 0.5); /* Dark overlay to ensure text readability */
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    /*Admin*/
+    .login-container {
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .login-button:hover {
+            background-color: #45a049;
+        }
+
+    /*Map Post*/
+    .map-container {
+            width: 80%;
+            max-width: 400px;
+            height: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+    /*Blog Post*/
+    .blog-section {
+            text-align: center;
+        }
+
+        .blog-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .blog-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .blog-card {
+            background-color: #222;
+            border-radius: 12px;
+            width: 250px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        .blog-card h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .blog-card p {
+            font-size: 0.9em;
+            color: #ccc;
+            padding: 0 10px;
+        }
+
+        .refresh-icon {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .refresh-icon:hover {
+            color: #fff;
+        }
+
+
+    /*trainers*/
+    .trainers-section {
+      text-align: center;
+      padding: 40px;
+    }
+
+    .trainers-section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .trainers-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .trainer-card {
+      background-color: #222;
+      border-radius: 20px;
+      padding: 20px;
+      width: 250px;
+      text-align: center;
+      position: relative;
+      border: 2px solid #444;
+      color: #fff;
+    }
+
+    .trainer-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .trainer-card h4 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .trainer-card p {
+      font-size: 0.9em;
+      margin-bottom: 20px;
+      color: #bbb;
+    }
+
+    /* Form Styles */
+    .form-container {
+      padding: 20px;
+      background: color transparent; ;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    input[type="text"], input[type="password"], input[type="email"], input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: #555;
+      color: white;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #777;
+    }
+
+    /* Membership Plan Styles */
+    .membership-section {
+      text-align: center;
+      padding: 40px;
+      width: 100%;
+    }
+
+    /* Cards Container */
+    .plans-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Individual Plan Card */
+    .plan-card {
+      background-color: #222;
+      border-radius: 20px;
+      overflow: hidden;
+      width: 250px;
+      text-align: center;
+      position: relative;
+      border: 2px solid #444;
+      color: #fff;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Image */
+    .plan-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    /* Plan Title */
+    .plan-card h3 {
+      font-size: 1.5em;
+      margin: 15px 0;
+    }
+
+    /* Plan Description */
+    .plan-card p {
+      font-size: 1em;
+      color: #bbb;
+      padding: 0 15px;
+    }
+
+    /* Plan Features List */
+    .plan-card ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 15px 0;
+    }
+
+    .plan-card li {
+      margin: 8px 0;
+      font-size: 0.9em;
+      color: #ddd;
+    }
+
+    /* Select Plan Button */
+    .select-btn {
+      margin: 20px 0;
+      padding: 10px 20px;
+      background-color: #555;
+      color: white;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .select-btn:hover {
+      background-color: #777;
+    }
+
+    .select-btn {
+      display: block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #555;
+      color: white;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .select-btn:hover {
+      background-color: #777;
+    }
+     /* Social Media Icons */
+     .social-icons {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .social-icons a {
+      margin: 0 15px;
+      color: #fff;
+      font-size: 24px;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      color: #bbb;
+    }
+    
+    .social-icons i {
+      font-size: 30px;
+    }
+
+    /*footer*/
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+    footer p {
+      margin: 0;
+    }
+
+    /* Tab Styles (Existing styles) */
+    .tablink { background-color: transparent; color: white; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; font-size: 17px; width: 16.66%; }
+    .tablink:hover { background-color: #777; }
+    .tabcontent { color: white; display: none; padding: 100px 20px; height: 100%; background-size: cover; background-position: center; }
+    .tabcontent video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+    .content-container { max-width: 1200px; margin: auto; background: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px; }
+
+  </style>
+</head>
+<body>
+
+  <img src="logo.jpg" alt="FitZone Logo" class="logo">
+
+  <button class="tablink" onclick="openPage('Home', this, 'transparent')">Home</button>
+  <button class="tablink" onclick="openPage('Blogs', this, 'transparent')">Blogs</button>
+  <button class="tablink" onclick="openPage('Membership', this, 'transparent')">Membership</button>
+  <button class="tablink" onclick="openPage('Trainers', this, 'transparent')">Our Trainers</button>
+  
+
+  <!---Header btn-->
+  <div class="header-btns d-none d-lg-block f-right">
+    <a href="admin-login.php" class="btn">Admin</a>
+  </div>
+  
+
+  <!-- Home Section -->
+  <div id="Home" class="tabcontent">
+    <video autoplay muted loop>
+      <source src="video1.mp4" type="video/mp4">
+    </video>
+    <div class="content-container">
+      <h3>Welcome to FitZone Fitness Center</h3>
+      <p>Your fitness journey begins here. Discover the best fitness programs and trainers.
+        Achieve your fitness goals with us! At [Your Gym Name], we provide state-of-the-art equipment,
+        expert trainers, and a supportive community to help you stay motivated and reach your full potential.
+         Whether you're into strength training, cardio, or group classes, we have something for everyone. 
+         Join us today and take the first step toward a healthier, stronger you!
+      </p>
+      <h2>Location Map</h2>
+      <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.907973054562!2d-122.08424948469288!3d37.4220652798226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5b0d1f22ffb%3A0x20bc29a29f5b7de!2sGoogleplex!5e0!3m2!1sen!2sus!4v1699998602024!5m2!1sen!2sus" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+      <h2>Rate Your Experience at Our Gym</h2>
+  <p>Please let us know how satisfied you are with our services by rating us below:</p>
+
+  <div class="rating">
+    <input type="radio" name="star" id="star5" value="5">
+    <label for="star5">★</label>
+    <input type="radio" name="star" id="star4" value="4">
+    <label for="star4">★</label>
+    <input type="radio" name="star" id="star3" value="3">
+    <label for="star3">★</label>
+    <input type="radio" name="star" id="star2" value="2">
+    <label for="star2">★</label>
+    <input type="radio" name="star" id="star1" value="1">
+    <label for="star1">★</label>
+  </div>
+
+  <p>Your feedback helps us improve our services and provide the best experience for all our gym members.</p>
+    </div>
+    <footer>
+      <p>&copy; 2024 FitZone Fitness Center | <a href="privacy.html" style="color: #fff;">Privacy Policy</a> | <a href="contact.html" style="color: #fff;">Contact Us: Email: info@fitzone.com | Phone: +1234567890</a></p>
+    </footer>
+  </div>
+
+  <!-- Blog Section -->
+  <div id="Blogs" class="tabcontent">
+    <video autoplay muted loop>
+      <source src="video1.mp4" type="video/mp4">
+    </video>
+    <div class="content-container">
+      <h2>Our Latest Blogs</h2>
+    <div class="blog-container">
+        <div class="blog-card">
+            <img src="healthy.jpg" alt="Blog Image 1">
+            <h3>Healthy Diet Tips</h3>
+            <p>Learn how to maintain a balanced diet with tips from our nutrition experts.</p>
+            <a href="https://www.nhs.uk/live-well/eat-well/how-to-eat-a-balanced-diet/eight-tips-for-healthy-eating/" class="read-more">Read More</a>
+        </div>
+        <div class="blog-card">
+            <img src="workout.jpg" alt="Blog Image 2">
+            <h3>Strength Training Basics</h3>
+            <p>Discover the essentials of strength training and build your fitness foundation.</p>
+            <a href="https://www.nsca.com/contentassets/116c55d64e1343d2b264e05aaf158a91/basics_of_strength_and_conditioning_manual.pdf?srsltid=AfmBOoqWKVtjFd_2gGBelye0RO3UOfbM93G-rixGLHrRQcICWWF6WDWG" class="read-more">Read More</a>
+        </div>
+        <div class="blog-card">
+            <img src="yoga.jpg" alt="Blog Image 3">
+            <h3>Yoga for Beginners</h3>
+            <p>Explore beginner-friendly yoga poses to improve flexibility and peace of mind.</p>
+            <a href="https://www.goodhousekeeping.com/health/fitness/a42396941/yoga-for-beginners/" class="read-more">Read More</a>
+        </div>
+        <div class="blog-card">
+            <img src="weight.jpg" alt="Blog Image 4">
+            <h3>Cardio Workouts at Home</h3>
+            <p>Get fit at home with these effective cardio exercises for all levels.</p>
+            <a href="https://www.medicalnewstoday.com/articles/cardio-exercises-at-home" class="read-more">Read More</a>
+        </div>
+    </div>
+    </div>
+    <footer>
+      <p>&copy; 2024 FitZone Fitness Center | <a href="privacy.html" style="color: #fff;">Privacy Policy</a> | <a href="contact.html" style="color: #fff;">Contact Us: Email: info@fitzone.com | Phone: +1234567890</a></p>
+    </footer>
+  </div>
+
+  
+
+  
+
+  <!-- Membership Section -->
+  <div id="Membership" class="tabcontent">
+    <video autoplay muted loop>
+      <source src="video1.mp4" type="video/mp4">
+    </video>
+    <div class="plans-container">
+      <h2>Membership Plans</h2>
+
+      <!-- Basic Plan -->
+      <div class="plan-card">
+        <img src="basic.jpg" alt="Basic Plan Image">
+        <h3>Basic Plan</h3>
+        <p>Great for starters!</p>
+        <ul>
+          <li>Access to gym equipment</li>
+          <li>3 Group Classes/month</li>
+          <li>Nutritional Consultation</li>
+          <li>Price: $29.99/month</li>
+        </ul>
+        <a href="#register" class="select-btn">Select Plan</a>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="plan-card">
+        <img src="premium.jpg" alt="Premium Plan Image">
+        <h3>Premium Plan</h3>
+        <p>Best for regular fitness enthusiasts</p>
+        <ul>
+          <li>Unlimited Equipment Access</li>
+          <li>Unlimited Group Classes</li>
+          <li>1 Personal Training Session/month</li>
+          <li>Nutritional Counseling</li>
+          <li>Price: $49.99/month</li>
+        </ul>
+        <a href="#register" class="select-btn">Select Plan</a>
+      </div>
+
+      <!-- VIP Plan -->
+      <div class="plan-card">
+        <img src="vip.jpg" alt="VIP Plan Image">
+        <h3>VIP Plan</h3>
+        <p>Exclusive perks for dedicated members</p>
+        <ul>
+          <li>All Premium Benefits</li>
+          <li>Unlimited Personal Training</li>
+          <li>Exclusive VIP Events</li>
+          <li>Priority Booking</li>
+          <li>Price: $79.99/month</li>
+        </ul>
+        <a href="#register" class="select-btn">Select Plan</a>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; 2024 FitZone Fitness Center | <a href="privacy.html" style="color: #fff;">Privacy Policy</a> | <a href="contact.html" style="color: #fff;">Contact Us: Email: info@fitzone.com | Phone: +1234567890</a></p>
+    </footer>
+  </div>
+
+  <!-- Trainers Section -->
+  <div id="Trainers" class="tabcontent">
+    <video autoplay muted loop>
+      <source src="video1.mp4" type="video/mp4">
+    </video>
+    <div class="content-container trainers-section">
+      <h2>Our Professional Trainers</h2>
+      <div class="trainers-container">
+        <div class="trainer-card">
+          <img src="trainer1.jpg" alt="Trainer 1">
+          <h4>Leo Das</h4>
+          <p>Specialized in Strength Training and Bodybuilding, helping members build strength and transform their physique.</p>
+          <div class="icon">&#10227;</div>
+        </div>
+        <div class="trainer-card">
+          <img src="trainer2.jpg" alt="Trainer 2">
+          <h4>Muhund</h4>
+          <p>Certified Yoga Instructor with 5+ years of experience.</p>
+          <div class="icon">&#10227;</div>
+        </div>
+        <div class="trainer-card">
+          <img src="trainer3.jpg" alt="Trainer 3">
+          <h4>Rolex</h4>
+          <p>Expert in Cardio Workouts and Weight Loss Programs.</p>
+          <div class="icon">&#10227;</div>
+        </div>
+        <div class="trainer-card">
+          <img src="trainer4.jpg" alt="Trainer 4">
+          <h4>Ajith</h4>
+          <p>Certified Pilates Instructor and Wellness Coach.</p>
+          <div class="icon">&#10227;</div>
+      </div>
+    </div>
+     <footer>
+      <p>&copy; 2024 FitZone Fitness Center | <a href="privacy.html" style="color: #fff;">Privacy Policy</a> | <a href="contact.html" style="color: #fff;">Contact Us: Email: info@fitzone.com | Phone: +1234567890</a></p>
+    </footer>
+  </div>
+
+  
+
+  
+
+  <script>
+    function openPage(pageName, elmnt, color) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(pageName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+    }
+
+    // Open the default tab
+    document.getElementById("defaultOpen").click();
+
+    // Select Membership Function
+    function selectMembership(plan) {
+      // Store the selected membership plan and redirect to registration page
+      alert('You selected the ' + plan + '. Please register to continue.');
+      document.getElementById('Register').style.display = 'block'; // Show Register tab
+      document.getElementById('name').focus(); // Focus on the name input for registration
+    }
+
+    function showLoginForm() {
+      var role = document.getElementById("roleSelect").value;
+      var adminLogin = document.getElementById("adminLogin");
+      var customerLogin = document.getElementById("customerLogin");
+      var staffLogin = document.getElementById("staffLogin");
+
+      // Hide all forms initially
+      adminLogin.style.display = "none";
+      customerLogin.style.display = "none";
+      staffLogin.style.display = "none";
+
+      // Show the selected form
+      if (role === "admin") {
+        adminLogin.style.display = "block";
+      } else if (role === "customer") {
+        customerLogin.style.display = "block";
+      } else if (role === "staff") {
+        staffLogin.style.display = "block";
+      }
+    }
+  </script>
+  <script src="https://kit.fontawesome.com/a076d05399.js">
+  </script>
+
+</body>
+</html>
